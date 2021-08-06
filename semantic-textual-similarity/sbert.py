@@ -39,6 +39,7 @@ import torch
 tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/bert-base-nli-mean-tokens')
 tokenizer.save_pretrained(os.path.expanduser('~/Documents/Data/transformers_models/bert-base-nli-mean-tokens'))
 model = AutoModel.from_pretrained('sentence-transformers/bert-base-nli-mean-tokens')
+model.save_pretrained(os.path.expanduser('~/Documents/Data/transformers_models/bert-base-nli-mean-tokens'))
 
 # Tokenize all of our sentences.
 
