@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # coding: utf-8
 
 # # BERT
@@ -7,7 +6,8 @@
 
 # In[1]:
 import os
-os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
+
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 a = "purple is the best city in the forest"
 b = "there is an art to getting your way and throwing bananas on to the street is not it"  # this is very similar to 'g'
@@ -37,9 +37,10 @@ import torch
 
 
 tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/bert-base-nli-mean-tokens')
-tokenizer.save_pretrained(os.path.expanduser('~/Documents/Data/transformers_models/bert-base-nli-mean-tokens'))
 model = AutoModel.from_pretrained('sentence-transformers/bert-base-nli-mean-tokens')
-model.save_pretrained(os.path.expanduser('~/Documents/Data/transformers_models/bert-base-nli-mean-tokens'))
+# save file to local
+# tokenizer.save_pretrained(os.path.expanduser('~/Documents/Data/transformers_models/bert-base-nli-mean-tokens'))
+# model.save_pretrained(os.path.expanduser('~/Documents/Data/transformers_models/bert-base-nli-mean-tokens'))
 
 # Tokenize all of our sentences.
 
@@ -180,6 +181,41 @@ sns.heatmap(scores, xticklabels=labels, yticklabels=labels, annot=True)
 
 # In[ ]:
 
+from transformers import AutoTokenizer, AutoModel
+import torch
+
+
+#Mean Pooling - Take attention mask into account for correct averaging
+def mean_pooling(model_output, attention_mask):
+    token_embeddings = model_output[0] #First element of model_output contains all token embeddings
+    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+    return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+
+
+# Sentences we want sentence embeddings for
+sentences = ['This is an example sentence', 'Each sentence is converted']
+
+# Load model from HuggingFace Hub
+# tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/bert-large-nli-stsb-mean-tokens')
+# model = AutoModel.from_pretrained('sentence-transformers/bert-large-nli-stsb-mean-tokens')
+
+
+tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/bert-base-nli-mean-tokens')
+model = AutoModel.from_pretrained('sentence-transformers/bert-base-nli-mean-tokens')
+
+# Tokenize sentences
+encoded_input = tokenizer(sentences, padding=True, truncation=True, return_tensors='pt')
+
+# Compute token embeddings
+with torch.no_grad():
+    model_output = model(**encoded_input)
+
+# Perform pooling. In this case, max pooling.
+sentence_embeddings = mean_pooling(model_output, encoded_input['attention_mask'])
+
+print("Sentence embeddings:")
+print(sentence_embeddings)
+
 
 from sentence_transformers import SentenceTransformer
 
@@ -212,3 +248,39 @@ for i in range(sentence_embeddings.shape[0]):
 
 
 print(scores)
+
+sentences = ['Lack of saneness',
+             'Absence of sanity',
+             'A man is eating food.',
+             'A man is eating a piece of bread.',
+             'The girl is carrying a baby.',
+             'A man is riding a horse.',
+             'A woman is playing violin.',
+             'Two men pushed carts through the woods.',
+             'A man is riding a white horse on an enclosed ground.',
+             'A monkey is playing drums.',
+             'A cheetah is running behind its prey.']
+sentence_embeddings = model.encode(sentences)
+
+for sentence, embedding in zip(sentences, sentence_embeddings):
+    print("Sentence:", sentence)
+    print("Embedding:", embedding)
+    print("")
+
+import scipy
+
+query = 'Nobody has sane thoughts'  # A query sentence uses for searching semantic similarity score.
+queries = [query]
+query_embeddings = model.encode(queries)
+
+print("Semantic Search Results")
+number_top_matches = 3
+for query, query_embedding in zip(queries, query_embeddings):
+    distances = scipy.spatial.distance.cdist([query_embedding], sentence_embeddings, "cosine")[0]
+    results = zip(range(len(distances)), distances)
+    results = sorted(results, key=lambda x: x[1])
+    print("Query:", query)
+    print("\nTop {} most similar sentences in corpus:".format(number_top_matches))
+
+    for idx, distance in results[0:number_top_matches]:
+        print(sentences[idx].strip(), "(Cosine Score: %.4f)" % (1 - distance))
