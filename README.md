@@ -17,5 +17,5 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 | 06_text_generation       | 文本生成    | 包含BERT面向生成任务的预训练+微调模型框架，以及一个GPT模型的应用。 |
 | 07_information_extraction    | 信息抽取 | 提供了多个数据集上的信息抽取基线实现。包含快递单信息抽取， MSRA-NER 数据集命名实体识别。 |
 | 08_machine_translation       | 机器翻译    | 提供了一个带Attention机制的，基于LSTM的多层RNN Seq2Seq翻译模型。 |
-| 09_dialogue | 对话系统 | 提供了 LIC 2021对话比赛基线, 开放域对话模型。|
+| 09_dialogue | 对话系统    | 提供了 LIC 2021对话比赛基线, 开放域对话模型。|
 
