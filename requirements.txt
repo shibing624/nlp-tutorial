@@ -1,0 +1,11 @@
+numpy
+scipy
+matplotlib
+scikit-learn
+torch
+click
+jieba
+h5py
+colorlog
+colorama
+multiprocess
