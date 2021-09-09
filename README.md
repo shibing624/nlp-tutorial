@@ -40,8 +40,6 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 ## 安装
 #### 环境依赖
 python >= 3.6
-torch >= 1.7.1
-transformers
 
 #### pip安装
 pip install -r requirements.txt
@@ -52,7 +50,7 @@ pip install -r requirements.txt
 教程内容涵盖了NLP基础、NLP应用以及文本相关的拓展应用如文本信息抽取、对话模型等。
 
 ## 使用
-打开各个子目录文件夹（如[01_word_embedding](01_word_embedding)）即可学习使用，各子目录的任务可独立运行，相互之间无依赖。。
+打开各个子目录文件夹（如[01_word_embedding](01_word_embedding)）即可学习使用，各子目录的任务可独立运行，相互之间无依赖。
 
 # Contact
 
