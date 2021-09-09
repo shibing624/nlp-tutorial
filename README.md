@@ -44,10 +44,13 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 
 - Issue(建议)：[![GitHub issues](https://img.shields.io/github/issues/shibing624/nlp-tutorial.svg)](https://github.com/shibing624/nlp-tutorial/issues)
 - 邮件我：xuming: xuming624@qq.com
-- 微信我：
-加我 *微信号：xuming624, 备注：个人名称-NLP* 进NLP交流群。
+- 微信我：加我*微信号：xuming624*, 进Python-NLP交流群，备注：*个人名称-NLP*
 
-<img src="docs/wechat.jpeg" width="200" />
+<img src="http://42.193.145.218/github_data/nlp_wechatgroup_erweima.png" width="200" /><img src="http://42.193.145.218/github_data/xm_wechat_erweima.png" width="200" />
+
+读后有疑问请加微信群讨论，读后有收获可以打赏作者喝咖啡：
+
+<img src="http://42.193.145.218/github_data/xm_wechat_zhifu.png" width="150" />
 
 
 # Cite
