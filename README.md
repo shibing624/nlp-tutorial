@@ -22,17 +22,17 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 
 # nlp-tutorial的例子清单
 
-| **目录**                   | **主题**   | 简要说明                             |
-| ------------------------- | ---------- | ----------------------------------- |
-| 01_word_embedding         | 词向量模型  | 提供了一个利用领域数据集提升词向量效果的例子。 |
-| 02_lexical_analysis       | 词法分析    | 词法分析任务的输入是一个句子，而输出是句子中的词边界和词性、实体类别，这个例子基于双向GRU和CRF实现。 |
-| 03_language_model         | 语言模型    | 提供了多个语言模型，如bert, electra, elmo, gpt等等，也提供了支持语言模型在垂直了类领域数据上继续训练的工具包。 |
-| 04_text_classification    | 文本分类    | 使用机器学习和深度模型如何完成文本分类任务。 |
-| 05_text_matching          | 文本匹配    | 提供了SBERT的文本匹配算法实现，可以应用于搜索，推荐系统排序，召回等场景。 |
-| 06_text_generation        | 文本生成    | 包含BERT面向生成任务的预训练+微调模型框架，以及一个GPT模型的应用。 |
-| 07_information_extraction | 信息抽取    | 提供了多个数据集上的信息抽取基线实现。包含快递单信息抽取， MSRA-NER 数据集命名实体识别。 |
-| 08_machine_translation    | 机器翻译    | 提供了一个带Attention机制的，基于LSTM的多层RNN Seq2Seq翻译模型。 |
-| 09_dialogue               | 对话系统    | 提供了 LIC 2021对话比赛基线, 开放域对话模型。|
+| **目录**   | **主题**   | 简要说明                             |
+| ------------------------- | --------------- | ----------------------------------- |
+| [01_word_embedding](01_word_embedding)         | 词向量模型  | 提供了一个利用领域数据集提升词向量效果的例子。 |
+| [02_lexical_analysis](02_lexical_analysis)       | 词法分析    | 词法分析任务的输入是一个句子，而输出是句子中的词边界和词性、实体类别，这个例子基于双向GRU和CRF实现。 |
+| [03_language_model](03_language_model)         | 语言模型    | 提供了多个语言模型，如bert, electra, elmo, gpt等等，也提供了支持语言模型在垂直了类领域数据上继续训练的工具包。 |
+| [04_text_classification](04_text_classification)    | 文本分类    | 使用机器学习和深度模型如何完成文本分类任务。 |
+| [05_text_matching](05_text_matching)          | 文本匹配    | 提供了SBERT的文本匹配算法实现，可以应用于搜索，推荐系统排序，召回等场景。 |
+| [06_text_generation](06_text_generation)        | 文本生成    | 包含BERT面向生成任务的预训练+微调模型框架，以及一个GPT模型的应用。 |
+| [07_information_extraction](07_information_extraction) | 信息抽取    | 提供了多个数据集上的信息抽取基线实现。包含快递单信息抽取， MSRA-NER 数据集命名实体识别。 |
+| [08_machine_translation](08_machine_translation)    | 机器翻译    | 提供了一个带Attention机制的，基于LSTM的多层RNN Seq2Seq翻译模型。 |
+| [09_dialogue](09_dialogue)               | 对话系统    | 提供了 LIC 2021对话比赛基线, 开放域对话模型。|
 
 
 # Get Started
