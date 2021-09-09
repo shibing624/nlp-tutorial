@@ -207,3 +207,4 @@ python interaction.py \
 - [UnifiedTransformer](https://arxiv.org/abs/2006.16779)
 - [Knover/luge-dialogue](https://github.com/PaddlePaddle/Knover/tree/luge-dialogue/luge-dialogue)
 - [DuConv](https://www.aclweb.org/anthology/P19-1369/)
+- [dialogbot](https://github.com/shibing624/dialogbot)
