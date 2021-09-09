@@ -3,7 +3,6 @@ scipy
 matplotlib
 scikit-learn
 torch
-click
 jieba
 h5py
 colorlog
