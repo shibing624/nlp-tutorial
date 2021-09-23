@@ -1,4 +1,4 @@
-# Word Embedding
+# 词向量（Word Embedding）
 
 
 词向量（Word embedding），即把词语表示成实数向量。“好”的词向量能体现词语直接的相近关系。词向量已经被证明可以提高NLP任务的性能，例如语法分析和情感分析。

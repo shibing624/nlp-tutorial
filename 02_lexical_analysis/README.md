@@ -1,4 +1,4 @@
-# 词法分析
+# 词法分析（Lexical Analysis）
 
 ## 1. 简介
 
@@ -40,99 +40,9 @@ python download.py --data_dir ./
 | c    | 连词     | u    | 助词     | xc   | 其他虚词 | w    | 标点符号 |
 | PER  | 人名     | LOC  | 地名     | ORG  | 机构名   | TIME | 时间     |
 
-### 模型训练
-
-#### 单卡训练
-
-启动方式如下：
-
-```bash
-python train.py \
-        --data_dir ./lexical_analysis_dataset_tiny \
-        --model_save_dir ./save_dir \
-        --epochs 10 \
-        --batch_size 32 \
-        --device gpu \
-        # --init_checkpoint ./save_dir/final
-```
-
-其中参数释义如下：
-- `data_dir`: 数据集所在文件夹路径.
-- `model_save_dir`: 训练期间模型保存路径。
-- `epochs`: 模型训练迭代轮数。
-- `batch_size`: 表示每次迭代**每张卡**上的样本数目。
-- `device`: 训练使用的设备, 'gpu'表示使用GPU, 'xpu'表示使用百度昆仑卡, 'cpu'表示使用CPU。
-- `init_checkpoint`: 模型加载路径，通过设置init_checkpoint可以启动增量训练。
-
-#### 多卡训练
-
-启动方式如下：
-
-```bash
-python -m paddle.distributed.launch --gpus "0,1"  train.py \
-        --data_dir ./lexical_analysis_dataset_tiny \
-        --model_save_dir ./save_dir \
-        --epochs 10 \
-        --batch_size 32 \
-        --device gpu \
-        # --init_checkpoint ./save_dir/final
-```
-
-### 模型评估
-
-通过加载训练保存的模型，可以对测试集数据进行验证，启动方式如下：
-
-```bash
-python eval.py --data_dir ./lexical_analysis_dataset_tiny \
-        --init_checkpoint ./save_dir/model_100.pdparams \
-        --batch_size 32 \
-        --device gpu
-```
-
-其中`./save_dir/model_100.pdparams`是训练过程中保存的参数文件，请更换为实际得到的训练保存路径。
-
-### 模型导出
-
-使用动态图训练结束之后，还可以将动态图参数导出成静态图参数，具体代码见export_model.py。静态图参数保存在`output_path`指定路径中。
-
-运行方式：
-
-```shell
-python export_model.py --data_dir=./lexical_analysis_dataset_tiny --params_path=./save_dir/model_100.pdparams --output_path=./infer_model/static_graph_params
-```
-
-其中`./save_dir/model_100.pdparams`是训练过程中保存的参数文件，请更换为实际得到的训练保存路径。
-
-* `params_path`是指动态图训练保存的参数路径
-* `output_path`是指静态图参数导出路径。
-
-导出模型之后，可以用于部署，deploy/predict.py文件提供了python部署预测示例。运行方式：
-
-```shell
-python deploy/predict.py --model_file=infer_model/static_graph_params.pdmodel --params_file=infer_model/static_graph_params.pdiparams --data_dir lexical_analysis_dataset_tiny
-```
-
-### 模型预测
-
-对无标签数据可以启动模型预测：
-
-```bash
-python predict.py --data_dir ./lexical_analysis_dataset_tiny \
-        --init_checkpoint ./save_dir/model_100.pdparams \
-        --batch_size 32 \
-        --device gpu
-```
-
-得到类似以下输出：
-
-```txt
-(大学, n)(学籍, n)(证明, n)(怎么, r)(开, v)
-(电车, n)(的, u)(英文, nz)
-(什么, r)(是, v)(司法, n)(鉴定人, vn)
-```
 
 
-## 预训练模型
+# Reference
 
 如果您希望使用已经预训练好了的LAC模型完成词法分析任务，请参考：
 
