@@ -60,10 +60,6 @@ pip install -r requirements.txt
 
 <img src="http://42.193.145.218/github_data/nlp_wechatgroup_erweima1.png" width="200" /><img src="http://42.193.145.218/github_data/xm_wechat_erweima.png" width="200" />
 
-读后有疑问请加微信群讨论，读后有收获可以打赏作者喝咖啡：
-
-<img src="http://42.193.145.218/github_data/xm_wechat_zhifu.png" width="150" />
-
 
 # Cite
 
