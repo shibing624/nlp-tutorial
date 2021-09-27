@@ -17,4 +17,8 @@
 
 - [01_机器学习分类模型.ipynb](01_机器学习分类模型.ipynb)
 - [02_深度学习分类模型.ipynb](02_深度学习分类模型.ipynb)
-- [03_应用_姓名识别性别.ipynb](03_应用_姓名识别性别.ipynb)
+- [03_Bert文本分类.ipynb](03_Bert文本分类.ipynb)
+- [04_应用_姓名识别国籍.ipynb](04_应用_姓名识别国籍.ipynb)
+- [AVG情感分析.py](sentiment_classification_avg.py)
+- [RNN情感分析.py](sentiment_classification_rnn.py)
+- [CNN情感分析.py](sentiment_classification_cnn.py)

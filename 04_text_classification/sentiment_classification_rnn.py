@@ -176,8 +176,8 @@ def train():
             best_val_loss = valid_loss
             torch.save(model.state_dict(), MODEL_PATH)
         print(f"Epoch: {epoch + 1}/{NUM_EPOCHS} | Epoch Time: {epoch_mins}m {epoch_secs}s")
-        print(f"\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.4f}%")
-        print(f"\tValid Loss: {valid_loss:.3f} | Valid Acc: {valid_acc*100:.4f}%")
+        print(f"\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc * 100:.4f}%")
+        print(f"\tValid Loss: {valid_loss:.3f} | Valid Acc: {valid_acc * 100:.4f}%")
 
 
 train()
@@ -186,7 +186,7 @@ train()
 # This is due to several issues with the model which we'll improve in the next notebook.
 model.load_state_dict(torch.load(MODEL_PATH))
 test_loss, test_acc = evaluate(model, test_iter, loss_fn)
-print(f"\tTest Loss: {test_loss:.3f} | Test Acc: {test_acc*100:.4f}%")
+print(f"\tTest Loss: {test_loss:.3f} | Test Acc: {test_acc * 100:.4f}%")
 
 
 def predict_sentiment(sentence):
