@@ -9,21 +9,22 @@
 # 在这份notebook中，我们会用PyTorch模型和TorchText再来做情感分析(检测一段文字的情感是正面的还是负面的)。我们会使用[IMDb 数据集](http://ai.stanford.edu/~amaas/data/sentiment/)，即电影评论。
 #
 # 模型从简单到复杂，我们会依次构建：
-# - Word Averaging模型(now)
+# - Word Averaging模型
 # - RNN/LSTM模型
-# - CNN模型
+# - CNN模型(now)
 import random
-
+import os
 import torch
 import torchtext
-from torchtext import datasets
+from torchtext.legacy import datasets
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 SEED = 1
 torch.manual_seed(SEED)
 random_state = random.seed(SEED)
 
-TEXT = torchtext.data.Field()
-LABEL = torchtext.data.LabelField(dtype=torch.float)
+TEXT = torchtext.legacy.data.Field()
+LABEL = torchtext.legacy.data.LabelField(dtype=torch.float)
 
 train_data, test_data = datasets.IMDB.splits(TEXT, LABEL)
 
@@ -52,7 +53,7 @@ BATCH_SIZE = 32
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print('device:', device)
-train_iter, valid_iter, test_iter = torchtext.data.BucketIterator.splits(
+train_iter, valid_iter, test_iter = torchtext.legacy.data.BucketIterator.splits(
     (train_data, valid_data, test_data),
     batch_size=BATCH_SIZE,
     device=device,
@@ -64,25 +65,41 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class WordAVGModel(nn.Module):
-    def __init__(self, vocab_size, embedding_dim, output_dim, pad_idx):
-        super(WordAVGModel, self).__init__()
+class CNN(nn.Module):
+    def __init__(self, vocab_size, embedding_dim, n_fileters, filter_sizes,
+                 output_dim, pad_idx, dropout=0.5):
+        super(CNN, self).__init__()
         self.embedding = nn.Embedding(vocab_size, embedding_dim, padding_idx=pad_idx)
-        self.fc = nn.Linear(embedding_dim, output_dim)
+        self.convs = nn.ModuleList([
+            nn.Conv2d(in_channels=1, out_channels=n_fileters,
+                      kernel_size=(fs, embedding_dim)) for fs in filter_sizes
+        ])
+        self.fc = nn.Linear(len(filter_sizes) * n_fileters, output_dim)
+        self.drop = nn.Dropout(dropout)
 
     def forward(self, x):
-        x = self.embedding(x)  # sent_len, batch_size, emb_dim
-        x = x.permute(1, 0, 2)  # batch_size, sent_len, emb_dim
-        x = F.avg_pool2d(x, (x.shape[1], 1)).squeeze(1)  # batch_size, emb_dim
+        x = x.permute(1, 0)  # batch_size, sent_len
+        x = self.embedding(x)  # batch_size, sent_len, emb_dim
+        x = x.unsqueeze(1)  # batch_size, 1, sent_len, emb_dim
+        # conv
+        x = [F.relu(conv(x)).squeeze(3) for conv in self.convs]
+        # max pool
+        x = [F.max_pool1d(conv, conv.shape[2]).squeeze(2) for conv in x]  # batch_size, n_filters
+        x = self.drop(torch.cat(x, dim=1))  # batch_size, n_filters * len(filter_sizes)
         x = self.fc(x)
         return x
 
 
 VOCAB_SIZE = len(TEXT.vocab)
 EMBEDDING_DIM = 50
+N_FILTERS = 100
+FILTER_SIZES = [3, 4, 5]
 OUTPUT_DIM = 1
+DROPOUT = 0.5
 PAD_IDX = TEXT.vocab.stoi[TEXT.pad_token]
-model = WordAVGModel(VOCAB_SIZE, EMBEDDING_DIM, OUTPUT_DIM, PAD_IDX).to(device)
+model = CNN(VOCAB_SIZE, EMBEDDING_DIM, N_FILTERS, FILTER_SIZES, OUTPUT_DIM, PAD_IDX, DROPOUT).to(device)
+
+print(model)
 
 
 def count_parameters(model):
@@ -97,6 +114,8 @@ print(f'Model has {count_parameters(model):,} trainable parameters')
 UNK_IDX = TEXT.vocab.stoi[TEXT.unk_token]
 model.embedding.weight.data[UNK_IDX] = torch.zeros(EMBEDDING_DIM)
 model.embedding.weight.data[PAD_IDX] = torch.zeros(EMBEDDING_DIM)
+
+print(model.embedding.weight.data)
 
 optimizer = torch.optim.Adam(model.parameters())
 loss_fn = nn.BCEWithLogitsLoss().to(device)
@@ -154,12 +173,12 @@ def epoch_time(start_time, end_time):
     return elapsed_mins, elapsed_secs
 
 
-NUM_EPOCHS = 10
-MODEL_PATH = 'wordavg_model.pth'
+NUM_EPOCHS = 5
+MODEL_PATH = 'cnn_model.pth'
 
 
 def train():
-    best_val_loss = 1e3
+    best_val_loss = 1000
     for epoch in range(NUM_EPOCHS):
         start_time = time.time()
         train_loss, train_acc = train_one_batch(model, train_iter, optimizer, loss_fn)
@@ -169,7 +188,7 @@ def train():
         if valid_loss < best_val_loss:
             best_val_loss = valid_loss
             torch.save(model.state_dict(), MODEL_PATH)
-        print(f"Epoch: {epoch + 1:02}/{NUM_EPOCHS} | Epoch Time: {epoch_mins}m {epoch_secs}s")
+        print(f"Epoch: {epoch + 1}/{NUM_EPOCHS} | Epoch Time: {epoch_mins}m {epoch_secs}s")
         print(f"\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.4f}%")
         print(f"\tValid Loss: {valid_loss:.3f} | Valid Acc: {valid_acc*100:.4f}%")
 

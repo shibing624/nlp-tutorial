@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-@author:XuMing（xuming624@qq.com)
-@description: sentiment classification
+@author:XuMing(xuming624@qq.com)
+@description: 
 """
 
 # 本notebook参考了https://github.com/bentrevett/pytorch-sentiment-analysis
@@ -10,20 +10,21 @@
 #
 # 模型从简单到复杂，我们会依次构建：
 # - Word Averaging模型
-# - RNN/LSTM模型
-# - CNN模型(now)
+# - RNN/LSTM模型(now)
+# - CNN模型
 import random
-
+import os
 import torch
 import torchtext
-from torchtext import datasets
+from torchtext.legacy import datasets
 
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 SEED = 1
 torch.manual_seed(SEED)
 random_state = random.seed(SEED)
 
-TEXT = torchtext.data.Field()
-LABEL = torchtext.data.LabelField(dtype=torch.float)
+TEXT = torchtext.legacy.data.Field()
+LABEL = torchtext.legacy.data.LabelField(dtype=torch.float)
 
 train_data, test_data = datasets.IMDB.splits(TEXT, LABEL)
 
@@ -52,52 +53,44 @@ BATCH_SIZE = 32
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print('device:', device)
-train_iter, valid_iter, test_iter = torchtext.data.BucketIterator.splits(
+train_iter, valid_iter, test_iter = torchtext.legacy.data.BucketIterator.splits(
     (train_data, valid_data, test_data),
     batch_size=BATCH_SIZE,
     device=device,
     shuffle=True
 )
 
-# Word Average model
 import torch.nn as nn
-import torch.nn.functional as F
 
 
-class CNN(nn.Module):
-    def __init__(self, vocab_size, embedding_dim, n_fileters, filter_sizes,
-                 output_dim, pad_idx, dropout=0.5):
-        super(CNN, self).__init__()
-        self.embedding = nn.Embedding(vocab_size, embedding_dim, padding_idx=pad_idx)
-        self.convs = nn.ModuleList([
-            nn.Conv2d(in_channels=1, out_channels=n_fileters,
-                      kernel_size=(fs, embedding_dim)) for fs in filter_sizes
-        ])
-        self.fc = nn.Linear(len(filter_sizes) * n_fileters, output_dim)
-        self.drop = nn.Dropout(dropout)
+class RNNModel(nn.Module):
+    def __init__(self, vocab_size=100, embedding_size=10, hidden_size=10, output_dim=1):
+        super(RNNModel, self).__init__()
+        self.embedding = nn.Embedding(vocab_size, embedding_size)
+        self.rnn = nn.GRU(embedding_size, hidden_size)
+        self.fc = nn.Linear(hidden_size, output_dim)
+
+        self.init_weights()
+        self.hidden_size = hidden_size
+
+    def init_weights(self, init_range=0.1):
+        self.embedding.weight.data.uniform_(-init_range, init_range)
+        self.fc.bias.data.zero_()
+        self.fc.weight.data.uniform_(-init_range, init_range)
 
     def forward(self, x):
-        x = x.permute(1, 0)  # batch_size, sent_len
-        x = self.embedding(x)  # batch_size, sent_len, emb_dim
-        x = x.unsqueeze(1)  # batch_size, 1, sent_len, emb_dim
-        # conv
-        x = [F.relu(conv(x)).squeeze(3) for conv in self.convs]
-        # max pool
-        x = [F.max_pool1d(conv, conv.shape[2]).squeeze(2) for conv in x]  # batch_size, n_filters
-        x = self.drop(torch.cat(x, dim=1))  # batch_size, n_filters * len(filter_sizes)
-        x = self.fc(x)
-        return x
+        emb = self.embedding(x)
+        output, hidden = self.rnn(emb)
+        return self.fc(hidden.squeeze(0))
 
 
 VOCAB_SIZE = len(TEXT.vocab)
 EMBEDDING_DIM = 50
-N_FILTERS = 100
-FILTER_SIZES = [3, 4, 5]
+HIDDEN_DIM = 50
 OUTPUT_DIM = 1
-DROPOUT = 0.5
 PAD_IDX = TEXT.vocab.stoi[TEXT.pad_token]
-model = CNN(VOCAB_SIZE, EMBEDDING_DIM, N_FILTERS, FILTER_SIZES, OUTPUT_DIM, PAD_IDX, DROPOUT).to(device)
 
+model = RNNModel(VOCAB_SIZE, EMBEDDING_DIM, HIDDEN_DIM, OUTPUT_DIM).to(device)
 print(model)
 
 
@@ -105,16 +98,11 @@ def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 
-print(f'Model has {count_parameters(model):,} trainable parameters')
-
-# pretrained_embeddings = TEXT.vocab.vectors
-# model.embedding.weight.data.copy_(pretrained_embeddings)
+print(f"Model has {count_parameters(model):,} trainable parameters")
 
 UNK_IDX = TEXT.vocab.stoi[TEXT.unk_token]
 model.embedding.weight.data[UNK_IDX] = torch.zeros(EMBEDDING_DIM)
 model.embedding.weight.data[PAD_IDX] = torch.zeros(EMBEDDING_DIM)
-
-print(model.embedding.weight.data)
 
 optimizer = torch.optim.Adam(model.parameters())
 loss_fn = nn.BCEWithLogitsLoss().to(device)
@@ -172,8 +160,8 @@ def epoch_time(start_time, end_time):
     return elapsed_mins, elapsed_secs
 
 
-NUM_EPOCHS = 5
-MODEL_PATH = 'cnn_model.pth'
+NUM_EPOCHS = 3
+MODEL_PATH = 'lstm_model.pth'
 
 
 def train():
@@ -187,16 +175,18 @@ def train():
         if valid_loss < best_val_loss:
             best_val_loss = valid_loss
             torch.save(model.state_dict(), MODEL_PATH)
-        print(f"Epoch: {epoch + 1:02}/{NUM_EPOCHS} | Epoch Time: {epoch_mins}m {epoch_secs}s")
+        print(f"Epoch: {epoch + 1}/{NUM_EPOCHS} | Epoch Time: {epoch_mins}m {epoch_secs}s")
         print(f"\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.4f}%")
         print(f"\tValid Loss: {valid_loss:.3f} | Valid Acc: {valid_acc*100:.4f}%")
 
 
-# train()
+train()
 
+# You may have noticed the loss is not really decreasing and the accuracy is poor.
+# This is due to several issues with the model which we'll improve in the next notebook.
 model.load_state_dict(torch.load(MODEL_PATH))
-# test_loss, test_acc = evaluate(model, test_iter, loss_fn)
-# print(f"\tTest Loss: {test_loss:.3f} | Test Acc: {test_acc*100:.4f}%")
+test_loss, test_acc = evaluate(model, test_iter, loss_fn)
+print(f"\tTest Loss: {test_loss:.3f} | Test Acc: {test_acc*100:.4f}%")
 
 
 def predict_sentiment(sentence):

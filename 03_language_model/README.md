@@ -6,5 +6,5 @@
 
 - [01_语言模型.ipynb](01_语言模型.ipynb)
 - [02_Transformer语言模型.ipynb](02_Transformer语言模型.ipynb)
-- [03_完形填空.ipynb](03_完形填空.ipynb)
+- [03_Bert完形填空.ipynb](03_Bert完形填空.ipynb)
 
