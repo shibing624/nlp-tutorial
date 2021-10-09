@@ -83,7 +83,6 @@ And for more, read the papers that introduced these topics:
 
 **Requirements**
 """
-, print_function, division
 
 import random
 import re
