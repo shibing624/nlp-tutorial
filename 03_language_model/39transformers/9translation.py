@@ -18,3 +18,6 @@ inputs = tokenizer.encode(
 outputs = model.generate(inputs, max_length=40, num_beams=4, early_stopping=True)
 
 print(tokenizer.decode(outputs[0]))
+import gensim
+
+gensim.models.Word2Vec.load()

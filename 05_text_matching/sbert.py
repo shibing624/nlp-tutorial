@@ -1,4 +1,8 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
+"""
+@author:XuMing(xuming624@qq.com)
+@description:
+"""
 
 # # BERT
 # 

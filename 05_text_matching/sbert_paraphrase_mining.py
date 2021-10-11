@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+@author:XuMing(xuming624@qq.com)
+@description:
+"""
 from sentence_transformers import SentenceTransformer, util
 
 # model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
@@ -11,7 +16,10 @@ sentences = ['The cat sits outside',
              'The cat plays in the garden',
              'A woman watches TV',
              'The new movie is so great',
-             'Do you like pizza?']
+             'Do you like pizza?',
+             '如何开通花呗付款？',
+             '你会使用花呗吗',
+             '如何使用支付宝花呗？',]
 
 paraphrases = util.paraphrase_mining(model, sentences)
 

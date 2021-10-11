@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+@author:XuMing(xuming624@qq.com)
+@description:
+"""
 from transformers import AutoModel, AutoTokenizer
 
 import os
