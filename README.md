@@ -40,10 +40,11 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 
 | Notebook     |      Description      |    |
 |:----------|:-------------|------:|
-| [01_word_embedding/01_文本表示.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA.ipynb)  | 文本向量表示  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA.ipynb) |
+| [01_word_embedding/01_文本表示.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_文本表示.ipynb)  | 文本向量表示  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_文本表示.ipynb) |
 | [01_word_embedding/02_词向量.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/02_词向量.ipynb)  | 实现skip-gram词向量模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/02_词向量.ipynb) |
 | [01_word_embedding/03_Word2Vec.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/03_Word2Vec.ipynb)  | 基于gensim使用word2vec模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/03_Word2Vec.ipynb) |
 | [01_word_embedding/04_Doc2Vec.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/04_Doc2Vec.ipynb)  | 基于gensim使用Doc2Vec模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/04_Doc2Vec.ipynb) |
+| [01_word_embedding/05_Bert向量.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/05_Bert向量.ipynb)  | 使用Bert模型取文本向量  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/05_Bert向量.ipynb) |
 | [02_lexical_analysis/01_中文分词.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/02_lexical_analysis/01_中文分词.ipynb)  | 中文分词工具  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/01_中文分词.ipynb) |
 | [02_lexical_analysis/02_实体识别.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/02_实体识别.ipynb)  | 基于transformers的NER识别  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/02_实体识别.ipynb) |
 | [03_language_model/01_语言模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/03_language_model/01_语言模型.ipynb)  | 从头训练RNN语言模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/01_语言模型.ipynb) |
@@ -63,11 +64,22 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 
 # Get Started
 
+- 使用Colab学习教程：
+
+点击各教程的[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_文本表示.ipynb)即可在Google Colab打开Notebook并运行。
+
+- 使用Jupyter Notebook学习教程：
+
+1. 下载Python：建议使用Anaconda，Python环境和包一键装好，[Python3.7 版本](https://www.anaconda.com/products/individual)
+2. 下载本项目：可以使用`git clone`，或者下载zip文件，解压到电脑
+3. 打开Jupyter Notebook：打开终端，`cd`到本项目所在的文件夹，执行：```jupyter notebook ```，浏览器打开`01_word_embedding/01_文本表示.ipynb`，跟随教程交互使用
+
+
 ## 安装
 #### 环境依赖
-python >= 3.6
+python >= 3.7
 
-#### pip安装
+#### pip安装依赖
 pip install -r requirements.txt
 
 ## 特色
