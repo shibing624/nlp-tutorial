@@ -10,7 +10,7 @@
 
 ## 教程列表
 
-| Notebook     |      Description      |  Colab |
+| Notebook     |      Description      |   |
 |:----------|:-------------|------:|
 | [01_word_embedding/01_文本表示.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA.ipynb)  | 文本向量表示  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA.ipynb) |
 | [01_word_embedding/02_词向量.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/02_词向量.ipynb)  | 实现skip-gram词向量模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/02_词向量.ipynb) |

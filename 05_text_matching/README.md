@@ -24,7 +24,7 @@
 
 ## 教程列表
 
-| Notebook     |      Description      |  Colab |
+| Notebook     |      Description      |   |
 |:----------|:-------------|------:|
 | [05_text_matching/01_词粒度文本匹配.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/05_text_matching/01_词粒度文本匹配.ipynb)  | 基于字面和word2vec的词文本匹配  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/05_text_matching/01_词粒度文本匹配.ipynb) |
 | [05_text_matching/02_句粒度文本匹配.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/05_text_matching/02_句粒度文本匹配.ipynb)  | SentenceBert的句子相似度计算  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/05_text_matching/02_句粒度文本匹配.ipynb) |
