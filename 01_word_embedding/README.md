@@ -10,7 +10,7 @@
 
 ## 教程列表
 
-- [01_文本表示.ipynb](01_文本表示.ipynb)
-- [02_词向量.ipynb](02_词向量.ipynb)
-- [03_Word2Vec.ipynb](03_Word2Vec.ipynb)
-- [04_Doc2Vec.ipynb](04_Doc2Vec.ipynb)
+- [01_文本表示.ipynb](01_文本表示.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
+- [02_词向量.ipynb](02_词向量.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
+- [03_Word2Vec.ipynb](03_Word2Vec.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
+- [04_Doc2Vec.ipynb](04_Doc2Vec.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
