@@ -20,13 +20,17 @@
 
 ## 教程列表
 
-- [01_机器学习分类模型.ipynb](01_机器学习分类模型.ipynb)
-- [02_深度学习分类模型.ipynb](02_深度学习分类模型.ipynb)
-- [03_Bert文本分类.ipynb](03_Bert文本分类.ipynb)
-- [04_应用_姓名识别国籍.ipynb](04_应用_姓名识别国籍.ipynb)
+| Notebook     |      Description      |  Colab |
+|:----------|:-------------|------:|
+| [04_text_classification/01_机器学习分类模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/04_text_classification/01_机器学习分类模型.ipynb)  | 基于scikit-learn训练LR等传统机器学习模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/04_text_classification/01_机器学习分类模型.ipynb) |
+| [04_text_classification/02_深度学习分类模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/04_text_classification/02_深度学习分类模型.ipynb)  | 训练PyTorch的IMDb情感分析模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/04_text_classification/02_深度学习分类模型.ipynb) |
+| [04_text_classification/03_Bert文本分类.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/04_text_classification/03_Bert文本分类.ipynb)  | 使用Bert模型finetune分类任务  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/04_text_classification/03_Bert文本分类.ipynb) |
+| [04_text_classification/04_应用_姓名识别国籍.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/04_text_classification/04_应用_姓名识别国籍.ipynb)  | 从头训练RNN模型做人名的国籍分类  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/04_text_classification/04_应用_姓名识别国籍.ipynb) |
+
 - [AVG情感分析.py](sentiment_classification_avg.py)
 - [RNN情感分析.py](sentiment_classification_rnn.py)
 - [CNN情感分析.py](sentiment_classification_cnn.py)
+
 
 ## 分类模型调研
 

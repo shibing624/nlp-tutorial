@@ -15,6 +15,7 @@
 
 ## 教程列表
 
-- [01_中文分词.ipynb](01_中文分词.ipynb)
-- [02_实体识别.ipynb](02_实体识别.ipynb)
-
+| Notebook     |      Description      |  Colab |
+|:----------|:-------------|------:|
+| [02_lexical_analysis/01_中文分词.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/02_lexical_analysis/01_中文分词.ipynb)  | 中文分词工具  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/01_中文分词.ipynb) |
+| [02_lexical_analysis/02_实体识别.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/02_实体识别.ipynb)  | 基于transformers的NER识别  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/02_实体识别.ipynb) |

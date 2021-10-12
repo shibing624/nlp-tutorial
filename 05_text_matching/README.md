@@ -24,9 +24,12 @@
 
 ## 教程列表
 
-- [01_词粒度文本匹配.ipynb](01_词粒度文本匹配.ipynb)
-- [02_句粒度文本匹配.ipynb](02_句粒度文本匹配.ipynb)
-- [03_篇章粒度文本匹配.ipynb](03_篇章粒度文本匹配.ipynb)
+| Notebook     |      Description      |  Colab |
+|:----------|:-------------|------:|
+| [05_text_matching/01_词粒度文本匹配.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/05_text_matching/01_词粒度文本匹配.ipynb)  | 基于字面和word2vec的词文本匹配  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/05_text_matching/01_词粒度文本匹配.ipynb) |
+| [05_text_matching/02_句粒度文本匹配.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/05_text_matching/02_句粒度文本匹配.ipynb)  | SentenceBert的句子相似度计算  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/05_text_matching/02_句粒度文本匹配.ipynb) |
+| [05_text_matching/03_篇章粒度文本匹配.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/05_text_matching/03_篇章粒度文本匹配.ipynb)  | LDA主题提取做Doc相似度计算  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/05_text_matching/03_篇章粒度文本匹配.ipynb) |
+
 - [sbert.py](./sbert.py) 展示了如何使用以 SBert 为代表的模型Fine-tune完成文本匹配任务。
 - [simcse.py](./simcse.py) 展示了如何使用SimCSE模型完成文本匹配任务。
 - [sbert_paraphrase_mining.py](sbert_paraphrase_mining.py) 支持中文的相似文本挖掘。
