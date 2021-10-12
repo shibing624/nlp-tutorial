@@ -10,7 +10,9 @@
 
 ## 教程列表
 
-- [01_文本表示.ipynb](01_文本表示.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
-- [02_词向量.ipynb](02_词向量.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
-- [03_Word2Vec.ipynb](03_Word2Vec.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
-- [04_Doc2Vec.ipynb](04_Doc2Vec.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
+| Notebook     |      Description      |   |
+|:----------|:-------------|------:|
+| [01_文本表示.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA.ipynb)  | 文本向量表示  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/01_%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA.ipynb) |
+| [02_词向量.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/02_词向量.ipynb)  | 实现skip-gram词向量模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/02_词向量.ipynb) |
+| [03_Word2Vec.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/03_Word2Vec.ipynb)  | 基于gensim使用word2vec模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/03_Word2Vec.ipynb) |
+| [04_Doc2Vec.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/01_word_embedding/04_Doc2Vec.ipynb)  | 基于gensim使用Doc2Vec模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/01_word_embedding/04_Doc2Vec.ipynb) |
