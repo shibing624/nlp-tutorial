@@ -17,5 +17,5 @@
 
 | Notebook     |      Description      |   |
 |:----------|:-------------|------:|
-| [02_lexical_analysis/01_中文分词.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/02_lexical_analysis/01_中文分词.ipynb)  | 中文分词工具  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/01_中文分词.ipynb) |
-| [02_lexical_analysis/02_实体识别.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/02_实体识别.ipynb)  | 基于transformers的NER识别  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/02_实体识别.ipynb) |
+| [02_lexical_analysis/01_中文分词工具.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/02_lexical_analysis/01_中文分词工具.ipynb)  | 中文分词工具  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/01_中文分词工具.ipynb) |
+| [02_lexical_analysis/02_从头实现中文分词.ipynb](https://github.com/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/02_实体识别.ipynb)  | 从头实现中文分词模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/02_lexical_analysis/02_从头实现中文分词.ipynb) |
