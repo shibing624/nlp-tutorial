@@ -32,7 +32,7 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 | [04_text_classification](04_text_classification)    | 文本分类    | 使用机器学习和深度模型如何完成文本分类任务。 |
 | [05_text_matching](05_text_matching)          | 文本匹配    | 提供了SBERT的文本匹配算法实现，可以应用于搜索，推荐系统排序，召回等场景。 |
 | [06_text_generation](06_text_generation)        | 文本生成    | 包含BERT面向生成任务的预训练+微调模型框架，以及一个GPT模型的应用。 |
-| [07_information_extraction](07_information_extraction) | 信息抽取    | 提供了多个数据集上的信息抽取基线实现。包含快递单信息抽取， MSRA-NER 数据集命名实体识别。 |
+| [07_information_extraction](07_information_extraction) | 信息抽取    | 提供了实体识别的基线实现。包含人名、地址名称的命名实体识别。 |
 | [08_machine_translation](08_machine_translation)    | 机器翻译    | 提供了一个带Attention机制的，基于LSTM的多层RNN Seq2Seq翻译模型。 |
 | [09_dialogue](09_dialogue)               | 对话系统    | 提供了 LIC 2021对话比赛基线, 开放域对话模型。|
 
@@ -59,6 +59,8 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 | [05_text_matching/03_篇章粒度文本匹配.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/05_text_matching/03_篇章粒度文本匹配.ipynb)  | LDA主题提取做Doc相似度计算  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/05_text_matching/03_篇章粒度文本匹配.ipynb) |
 | [06_text_generation/01_字符级人名生成.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/06_text_generation/01_字符级人名生成.ipynb)  | 从头训练Char-RNN做人名生成  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/06_text_generation/01_字符级人名生成.ipynb) |
 | [06_text_generation/02_预训练文本生成模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/06_text_generation/02_预训练文本生成模型.ipynb)  | 基于transformers的GPT、XLNet生成模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/06_text_generation/02_预训练文本生成模型.ipynb) |
+| [07_information_extraction/01_CRF实体识别模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/07_information_extraction/01_CRF实体识别模型.ipynb)  | 从头实现CRF实体识别模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/07_information_extraction/01_CRF实体识别模型.ipynb) |
+| [07_information_extraction/02_Bert实体识别.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/07_information_extraction/02_Bert实体识别.ipynb)  | 基于transformers的Bert实体识别模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/07_information_extraction/02_Bert实体识别.ipynb) |
 
 
 
