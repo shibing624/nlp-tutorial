@@ -34,7 +34,7 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 | [06_text_generation](06_text_generation)        | 文本生成    | 包含BERT面向生成任务的预训练+微调模型框架，以及一个GPT模型的应用。 |
 | [07_information_extraction](07_information_extraction) | 信息抽取    | 提供了实体识别的基线实现。包含人名、地址名称的命名实体识别。 |
 | [08_machine_translation](08_machine_translation)    | 机器翻译    | 提供了一个带Attention机制的，基于LSTM的多层RNN Seq2Seq翻译模型。 |
-| [09_dialogue](09_dialogue)               | 对话系统    | 提供了 LIC 2021对话比赛基线, 开放域对话模型。|
+| [09_dialogue](09_dialogue)               | 对话系统    | 提供了Bert的问答模型。|
 
 - Notebook教程说明
 
@@ -65,7 +65,7 @@ NLP教程，包括：文本词向量，预训练语言模型，文本语义相�
 | [08_machine_translation/01_从头实现Seq2Seq模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/08_machine_translation/01_从头实现Seq2Seq模型.ipynb)  | 从头实现Seq2Seq翻译模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/08_machine_translation/01_从头实现Seq2Seq模型.ipynb) |
 | [08_machine_translation/02_transformer翻译模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/08_machine_translation/02_transformer翻译模型.ipynb)  | 从头实现Transformer翻译模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/08_machine_translation/02_transformer翻译模型.ipynb) |
 | [08_machine_translation/03_T5翻译模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/08_machine_translation/03_T5翻译模型.ipynb)  | T5翻译模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/08_machine_translation/03_T5翻译模型.ipynb) |
-| [09_dialogue/01_对话模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/09_dialogue/01_对话模型.ipynb)  | 基于transformers的Bert阅读理解任务  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/09_dialogue/01_对话模型.ipynb) |
+| [09_dialogue/01_对话模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/09_dialogue/01_对话模型.ipynb)  | 基于transformers的Bert问答模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/09_dialogue/01_对话模型.ipynb) |
 
 
 # Get Started

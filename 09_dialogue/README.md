@@ -11,7 +11,7 @@
 
 | Notebook     |      Description      |   |
 |:----------|:-------------|------:|
-| [09_dialogue/01_对话模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/09_dialogue/01_对话模型.ipynb)  | 基于transformers的Bert阅读理解任务  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/09_dialogue/01_对话模型.ipynb) |
+| [09_dialogue/01_对话模型.ipynb](https://github.com/shibing624/nlp-tutorial/tree/main/09_dialogue/01_对话模型.ipynb)  | 基于transformers的Bert问答模型  |[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shibing624/nlp-tutorial/blob/main/09_dialogue/01_对话模型.ipynb) |
 
 ## Reference
 
