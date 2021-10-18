@@ -6,7 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/shibing624/nlp-tutorial.svg)](https://github.com/shibing624/nlp-tutorial/issues)
 [![Wechat Group](http://vlog.sfyc.ltd/wechat_everyday/wxgroup_logo.png?imageView2/0/w/60/h/20)](#Contact)
 
-NLP教程，包括：文本词向量，预训练语言模型，文本语义相似度计算，词法分析，信息抽取，实体关系抽取，文本分类，翻译，对话。
+自然语言处理（NLP）教程，包括：文本词向量，词法分析，预训练语言模型，文本分类，文本语义相似度计算，文本生成，实体识别，翻译，对话。
 
 
 在本NLP教程包含了一些范例，涵盖了大多数常见NLP任务，是入门NLP和PyTorch的学习资料，也可以作为工作中上手NLP的基线参考实现。
