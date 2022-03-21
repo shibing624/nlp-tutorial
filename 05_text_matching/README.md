@@ -10,12 +10,6 @@
 <img src="https://ai-studio-static-online.cdn.bcebos.com/1d24ea95d560465995515f8a3040202b092b07c6d03e4501b64a16dce01a1bbe" width='400'/>
 </p>
 
-
-<p align="center">
-<img src="https://ai-studio-static-online.cdn.bcebos.com/ff58769b237444b89bde5fec9d7215e02825b7d1f2864269986f1daa01b9f497" width='400'/>
-</p>
-
-
 文本匹配任务数据每一个样本通常由两个文本组成（query，title）。类别形式为 0 或 1，0 表示 query 与 title 不匹配； 1 表示匹配。
 
 文本匹配的常规解决方案，具体如下:
